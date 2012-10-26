@@ -14,4 +14,11 @@ Don't shoot yourself in the foot traversing objects.
   human('height')();                        // undefined
   human('name')('middle')();                // undefined
   human('name')('middle')('firstLetter')(); // undefined
+
+  // You lazy?
+
+  human.walk();                             // { name: { first: 'Jonathan', last: 'Clem' } }
+  human.walk('name');                       // { first: 'Jonathan', last: 'Clem' }
+  human.walk('name.firstName');             // 'Jonathan'
+  human.walk('name.firstName.firstLetter'); // undefined
 ```
