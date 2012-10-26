@@ -3,13 +3,15 @@
 Don't shoot yourself in the foot traversing objects.
 
 ```javascript
-  var human = { name: { firstName: 'Jonathan', lastName: 'Clem' } };
+  var human = { name: { first: 'Jonathan', last: 'Clem' } };
 
-  human = new SteelToe(human)
+  human = new SteelToe(human);
 
-  human('name')()                               // { firstName: 'Jonathan', lastName: 'Clem' }
-  human('name')('firstName')()                  // 'Jonathan'
-  human('height')()                             // undefined
-  human('name')('middleName')()                 // undefined
-  human('name')('middleName')('firstLetter')()  // undefined
+  human();                                  // { name: { first: 'Jonathan', last: 'Clem' } }
+  human('name')();                          // { first: 'Jonathan', last: 'Clem' }
+  human('name')('first')();                 // 'Jonathan'
+  human('name')('first')('firstLetter')();  // undefined
+  human('height')();                        // undefined
+  human('name')('middle')();                // undefined
+  human('name')('middle')('firstLetter')(); // undefined
 ```
