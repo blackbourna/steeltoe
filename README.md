@@ -7,8 +7,10 @@ Don't shoot yourself in the foot traversing objects.
 
   human = new SteelToe(human);
 
+  human();                                        // { name: { firstName: 'Jonathan', lastName: 'Clem' } }
   human('name')();                                // { firstName: 'Jonathan', lastName: 'Clem' }
   human('name')('firstName')();                   // 'Jonathan'
+  human('name')('firstName')('firstLetter')();    // undefined
   human('height')();                              // undefined
   human('name')('middleName')();                  // undefined
   human('name')('middleName')('firstLetter')();   // undefined
