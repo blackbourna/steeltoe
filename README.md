@@ -10,7 +10,7 @@ Don't shoot yourself in the foot traversing objects.
   human();                                  // { name: { first: 'Jonathan', last: 'Clem' } }
   human('name')();                          // { first: 'Jonathan', last: 'Clem' }
   human('name')('first')();                 // 'Jonathan'
-  human('name')('last')('firstLetter')();   // undefined
+  human('name')('first')('firstLetter')();   // undefined
   human('height')();                        // undefined
   human('name')('middle')();                // undefined
   human('name')('middle')('firstLetter')(); // undefined
