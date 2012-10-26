@@ -5,7 +5,7 @@ Don't shoot yourself in the foot traversing objects.
 ```javascript
   var human = { name: { first: 'Jonathan', last: 'Clem' } };
 
-  human = new SteelToe(human);
+  human = SteelToe(human);
 
   human();                                  // { name: { first: 'Jonathan', last: 'Clem' } }
   human('name')();                          // { first: 'Jonathan', last: 'Clem' }
