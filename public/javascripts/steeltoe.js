@@ -1,14 +1,8 @@
-var SteelToe = function (object) {
-  var steelToe = function (property) {
+function SteelToe (object) {
+  function steelToe (property) {
     if (property) {
-      if (object[property]) {
-        return new SteelToe(object[property]);
-      } else {
-        return new SteelToe('__steelToe_propNotFound__');
-      }
-    } else if (!property && object === '__steelToe_propNotFound__') {
-      return undefined;
-    } else {
+      return SteelToe(object[property] || '__steelToe_propNotFound__');
+    } else if (!(object === '__steelToe_propNotFound__')) {
       return object;
     }
   }

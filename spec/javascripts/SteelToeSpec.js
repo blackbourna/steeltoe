@@ -23,8 +23,20 @@ describe("SteelToe", function () {
   });
 
   describe("#walk", function () {
-    it("splits a string of keys and walks through the object", function () {
-      expect(steelToe.walk('name.firstName')).toEqual(steelToe('name')('firstName')());
+    describe("with no traversal chain", function () {
+      it("returns its object", function () {
+        expect(steelToe.walk()).toEqual(object);
+      });
+    });
+
+    describe("with a traversal chain", function () {
+      it("splits a string of keys and walks through the object", function () {
+        expect(steelToe.walk('name.first')).toEqual(steelToe('name')('first')());
+      });
+
+      it("returns undefined properties properly", function () {
+        expect(steelToe.walk('this.is.bad')).not.toBeDefined();
+      });
     });
   });
 });
