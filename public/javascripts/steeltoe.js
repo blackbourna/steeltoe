@@ -2,10 +2,8 @@ function SteelToe (object) {
   function steelToe (property) {
     if (object && property) {
       return SteelToe(object[property]);
-    } else if (property) {
-      return SteelToe();
     } else {
-      return object;
+      return property ? SteelToe() : object;
     }
   }
 
