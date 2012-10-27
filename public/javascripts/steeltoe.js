@@ -1,8 +1,10 @@
 function SteelToe (object) {
   function steelToe (property) {
-    if (property) {
-      return SteelToe(object[property] || '__steelToe_propNotFound__');
-    } else if (!(object === '__steelToe_propNotFound__')) {
+    if (object && property) {
+      return SteelToe(object[property]);
+    } else if (property) {
+      return SteelToe();
+    } else {
       return object;
     }
   }
