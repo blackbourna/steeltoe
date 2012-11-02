@@ -1,4 +1,4 @@
-# Steeltoe
+# SteelToe
 
 Don't shoot yourself in the foot while traversing JavaScript objects.
 
