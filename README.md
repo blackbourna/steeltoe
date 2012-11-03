@@ -2,6 +2,10 @@
 
 Don't shoot yourself in the foot while traversing JavaScript objects.
 
+## Get It
+
+It's a single JavaScript file&mdash;link to the raw code [here](https://raw.github.com/jclem/steeltoe/master/public/javascripts/steeltoe.js).
+
 ## Usage
 
 SteelToe is a tiny JavaScript function that makes it safe to traipse about objects without worrying about whether keys may or may not exist, and whether it's safe to try and look inside of them. There are two ways to use it:
