@@ -8,9 +8,11 @@ It's a single JavaScript file&mdash;link to the raw code [here](https://raw.gith
 
 ## Usage
 
-SteelToe is a tiny JavaScript function that makes it safe to traipse about objects without worrying about whether keys may or may not exist, and whether it's safe to try and look inside of them. There are two ways to use it:
+SteelToe is a tiny JavaScript function that makes it safe to traipse about objects without worrying about whether keys may or may not exist, and whether it's safe to try and look inside of them. It also provides basic [autovivification](http://en.wikipedia.org/wiki/Autovivification) of objects through the `set` function.
 
-### Method #1
+### Getting Values
+
+#### Method #1
 ```javascript
 var object = { info: { name: { first: 'Jonathan', last: 'Clem' } } }
 
@@ -19,7 +21,7 @@ object('info')('name')('last')();           // 'Clem'
 object('info')('features')('hairColor')();  // undefined
 ```
 
-### Method #2
+#### Method #2
 ```javascript
 var object = { info: { name: { first: 'Jonathan', last: 'Clem' } } }
 
@@ -27,6 +29,19 @@ object = SteelToe(object);
 object.walk('info.name.last');          // 'Clem'
 object.walk('info.features.hairColor'); // undefined
 ```
+
+### Setting Values
+
+```javascript
+var jonathan = { info: { name: { first: 'Jonathan', last: 'Clem' } } };
+
+toe = SteelToe(jonathan);
+toe.set('info.name.middle', 'Tyler');
+toe.set('info.favorites.movie', 'Harold & Maude');
+
+jonathan.info.name.middle; // Tyler
+jonathan.info.favorites.movie; // Harold & Maude
+````
 
 ## Details
 

@@ -91,6 +91,17 @@ describe("SteelToe", function () {
       });
     });
 
+    describe("setting multiple values", function () {
+      beforeEach(function () {
+        steelToe.set('info.name.first', 'George');
+        steelToe.set('info.name.last', 'Washington');
+      });
+
+      it("should set both values", function () {
+        expect(steelToe.walk('info.name')).toEqual({ first: 'George', last: 'Washington' });
+      });
+    });
+
     describe("for a non-existent key nested multiple levels into in a non-existent object", function () {
       beforeEach(function () {
         steelToe.set('info.birthplace.city', 'Indianapolis');

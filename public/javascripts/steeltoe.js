@@ -1,27 +1,26 @@
 function SteelToe (object, rootObject) {
-  var rootObject = rootObject || object;
-
   function steelToe (property) {
     if (object && property) {
-      return SteelToe(object[property], rootObject);
+      return SteelToe(object[property]);
     } else {
-      return property ? SteelToe(undefined, rootObject) : object;
+      return property ? SteelToe() : object;
     }
   }
 
   steelToe.set = function (traversalChain, value) {
-    var keys = traversalChain.split('.');
+    var keys = traversalChain.split('.'),
+        object = steelToe;
 
     for (var i = 0; i < keys.length; i ++) {
-      if (!steelToe()[keys[i]]) {
-        steelToe()[keys[i]] = {};
+      if (!object()[keys[i]]) {
+        object()[keys[i]] = {};
       }
 
       if (i == keys.length - 1) {
-        steelToe()[keys[i]] = value;
+        object()[keys[i]] = value;
       }
 
-      steelToe = steelToe(keys[i]);
+      object = object(keys[i]);
     }
 
     return value;
