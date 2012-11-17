@@ -33,9 +33,9 @@ object.walk('info.features.hairColor'); // undefined
 ### Setting Values
 
 ```javascript
-var jonathan = { info: { name: { first: 'Jonathan', last: 'Clem' } } };
+var jonathan = { info: { name: { first: 'Jonathan', last: 'Clem' } } },
+    toe = SteelToe(jonathan);
 
-toe = SteelToe(jonathan);
 toe.set('info.name.middle', 'Tyler');
 toe.set('info.favorites.movie', 'Harold & Maude');
 
