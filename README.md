@@ -16,28 +16,25 @@ SteelToe is a tiny JavaScript function that makes it safe to traipse about objec
 ```javascript
 var object = { info: { name: { first: 'Jonathan', last: 'Clem' } } }
 
-object = SteelToe(object);
-object('info')('name')('last')();           // 'Clem'
-object('info')('features')('hairColor')();  // undefined
+SteelToe(object)('info')('name')('last')();           // 'Clem'
+SteelToe(object)('info')('features')('hairColor')();  // undefined
 ```
 
 #### Method #2
 ```javascript
 var object = { info: { name: { first: 'Jonathan', last: 'Clem' } } }
 
-object = SteelToe(object);
-object.walk('info.name.last');          // 'Clem'
-object.walk('info.features.hairColor'); // undefined
+SteelToe(object).walk('info.name.last');          // 'Clem'
+SteelToe(object).walk('info.features.hairColor'); // undefined
 ```
 
 ### Setting Values
 
 ```javascript
 var jonathan = { info: { name: { first: 'Jonathan', last: 'Clem' } } },
-    toe = SteelToe(jonathan);
 
-toe.set('info.name.middle', 'Tyler');
-toe.set('info.favorites.movie', 'Harold & Maude');
+SteelToe(jonathan).set('info.name.middle', 'Tyler');
+SteelToe(jonathan).set('info.favorites.movie', 'Harold & Maude');
 
 jonathan.info.name.middle; // Tyler
 jonathan.info.favorites.movie; // Harold & Maude
@@ -81,8 +78,7 @@ Or, you could use SteelToe and write this:
 var fatherFirstNames = [];
 
 for (var i = 0; i < families.length; i++) {
-  var family = SteelToe(families[i]),
-      name = family.walk('father.info.name.first');
+  var name = SteelToe(families[i]).walk('father.info.name.first');
 
   if (name) {
     fatherFirstNames.push(name);
